@@ -1,0 +1,16 @@
+<div class="weather">
+
+  <h4>Weather for {{city}}</h4>
+  <div class="">
+    <img src="http://openweathermap.org/img/w/{{weatherDirCtrl.weather.weather[0].icon}}.png" alt="{{weatherDirCtrl.weather.weather[0].description}}" />
+  </div>
+
+  <div class="">
+    {{weatherDirCtrl.weather.main.temp}}°F
+
+    <br>
+    {{weatherDirCtrl.weather.weather[0].description}}
+  </div>
+
+
+</div>
