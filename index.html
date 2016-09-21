@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='Weather'>
+<html ng-app='weatherApp'>
   <head>
     <meta charset="utf-8">
     <title>Weather Directive Demo</title>
@@ -8,9 +8,20 @@
 
     <script type='text/javascript' src='app.js'></script>
     <script type='text/javascript' src='scripts/directives/weather.js'></script>
+    <script type ='text/javascript' src='controllers/weatherController.js'></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <weather city="San Francisco"></weather>
+    <div class="container" ng-controller="weatherController as weatherController">
+      <h1>California Weather</h1>
+      <div class="row">
+        <div ng-repeat="cityName in weatherController.cities" class="col-md-3">
+          <weather city="{{cityName}}"></weather>
+        </div>
+      </div>
+
+
+
   </body>
 </html>

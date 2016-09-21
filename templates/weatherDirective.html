@@ -1,16 +1,14 @@
 <div class="weather">
 
-  <h4>Weather for {{city}}</h4>
+  <h4>Weather for {{cityName}}</h4>
   <div class="">
-    <img src="http://openweathermap.org/img/w/{{weatherDirCtrl.weather.weather[0].icon}}.png" alt="{{weatherDirCtrl.weather.weather[0].description}}" />
+    <img ng-src="http://openweathermap.org/img/w/{{weatherDirCtrl.weather.weather[0].icon}}.png" alt="{{weatherDirCtrl.weather.weather[0].description}}" />
   </div>
-
-  <div class="">
-    {{weatherDirCtrl.weather.main.temp}}°F
+<div>
+    <h2>{{weatherDirCtrl.weather.main.temp}}°F</h2>
 
     <br>
-    {{weatherDirCtrl.weather.weather[0].description}}
-  </div>
-
+    <h4>{{weatherDirCtrl.weather.weather[0].description}}</h4>
+</div>
 
 </div>

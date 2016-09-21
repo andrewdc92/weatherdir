@@ -1,4 +1,4 @@
-angular.module('Weather')
+angular.module('weatherApp')
   .directive('weather', weather);
 
 var key = '&appid=5f4af2500f000a00c37ee341963dfc14';
@@ -13,26 +13,30 @@ function weather(){
     replace: true,
     controller: weatherDirController,
     controllerAs: 'weatherDirCtrl'
-  }
-  return directive;
-}
+  };
 
 weatherDirController.$inject=['$http', '$scope'];
 function weatherDirController($http, $scope){
   var vm = this;
+  var url="http://api.openweathermap.org/data/2.5/weather?mode=json&cnt=7&units=imperial&q=";
   console.log($scope.city);
   vm.getWeather = function(city){
-    var query = '?q=' + city + key + '&units=imperial';
     $http({
       method:'GET',
-      url:'http://api.openweathermap.org/data/2.5/weather'+query
-    }).success(function(data){
-      console.log(data);
-      vm.weather=data
-    }).error(function(error){
+      url: url + city + key
+    }).then(function(response){
+      console.log(response);
+      vm.weather = response.data;
+    }, function(error){
       console.log(error);
     });
 
-  }
+  };
   vm.getWeather($scope.city);
+};
+
+
+  return directive
 }
+
+// response is not different than data in this case, no?
